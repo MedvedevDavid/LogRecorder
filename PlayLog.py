@@ -4,22 +4,20 @@ import search_number_in_text_contant as miner
 
 LIST_LENGTH_TO_PLOT = 100
 PLOT_CYCLETIME = 100
+file_to_read = open("logs/putty.log", "r")
+strings_to_be_mined_list = ["Ro", "Po", "Ri", "Pi", "M1", "M2", "M3","M4"]
+
+plot_data_dict = {}
+mined_data_dict = {}
+fig, ax = plt.subplots()
 
 def mine_data(input_string, data_to_be_mined):
     converter_obj = miner.TextNumberSearcher(input_string)
     converter_obj.set_text_to_be_find(data_to_be_mined)
     converter_obj.generate_sum_and_array()
     return converter_obj
-   
-
-file_to_read = open("logs/putty.log", "r")
-strings_to_be_mined_list = ["Ro", "Po", "Ri", "Pi", "M1", "M2", "M3","M4"]
-plot_data_dict = {}
-mined_data_dict = {}
-fig, ax = plt.subplots()
 
 def animate(i):
-
     mine_currectcycle_data()
     sort_mined_data_for_plot()
     plot_data()
