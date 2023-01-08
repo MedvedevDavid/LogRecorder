@@ -11,11 +11,11 @@ def mine_data(input_string, data_to_be_mined):
 
 mined_data_dict = {}
 file_to_read = open("logs/putty.log", "r")
-input_string = file_to_read.read().split("\n")
+string_needs_to_be_mined_from = file_to_read.read().split("\n")
 strings_to_be_mined_list = ["Ro", "Po", "Ri", "Pi", "M1", "M2", "M3","M4"]
 
 for strings_to_be_mined in strings_to_be_mined_list:
-    mined_data_dict[strings_to_be_mined] = mine_data(input_string, strings_to_be_mined)
+    mined_data_dict[strings_to_be_mined] = mine_data(string_needs_to_be_mined_from, strings_to_be_mined)
 
 file_to_read.close()
 fig, ax = plt.subplots()
